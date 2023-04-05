@@ -1,34 +1,23 @@
-map = [1, 3, 9, 1, 5, 10, 1, 1, 1]
+map = [1, 2,3,4,5,6,7,8,9,10]
 arr = []
 result = []
 
-def find(index, a):
-    d = a.copy()
-    d.append(index)
-    global result
-    
-    right = left = index
-    while right in d:
-        right += 1
-        
-    while left in d:
-        left -= 1
+def find(index, list):
+    global map, result
+    cp_result = list.copy()
+    if map[index] in list: return 
 
-    if len(d) >= 4:
-        d.sort()
-        print(d in result)
-        if d in result:
-            return
-        else:
-            result.append(d)
-            
+    elif len(list) >= 4: 
+        print(cp_result)
+        return
+ 
     else:
-        find(right, d)
-        find(left, d)
+       
+        cp_result.append(map[index])
+
+    find(index + 1, cp_result)
+    find(index - 1, cp_result)
 
 
-arr.append(5)
-find(5 + 1, arr)
-find(5 - 1, arr)
-for i in result:
-    print(i)
+find(4, arr)
+
