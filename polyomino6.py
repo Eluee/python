@@ -22,23 +22,26 @@ def printmap( set ):
         print(item)
     print("\n")
 
-def find(x, y, set):
+def find(x, y, set, depth):
     global max_set, map_size
     if(0 > x or x >= map_size[1] or 0 > y or  y >= map_size[0]): return
+
+    cp_depth = depth[:]
+    cp_depth +=  "(" + str(x) + ", " + str(y) + ")"
     cp_set = set.copy()
-    if (y, x) in set:
+    if (y, x) in cp_set:
         return
-    elif len(set) >= 4:
-        #print(cp_set)
-        printmap(cp_set)
+    elif len(cp_set) >= 4:
+        print(cp_set, "depth : ", depth)
+        #printmap(cp_set)
         return
     else:
         cp_set.add((y, x))
 
-    find(x + 1, y,  cp_set)
-    find(x - 1, y,  cp_set) 
-    find(x, y + 1,  cp_set) 
-    find(x, y - 1,  cp_set)     
+    find(x + 1, y,  cp_set, cp_depth)
+    find(x - 1, y,  cp_set, cp_depth) 
+    find(x, y + 1,  cp_set, cp_depth) 
+    find(x, y - 1,  cp_set, cp_depth)     
     
 map_size = list(map(int, input().split()))
 
@@ -50,8 +53,8 @@ myset = set()
 # for y in range(map_size[0]):
 #     for x in range(map_size[1]):
 #         find(x, y, 0, myset)
+mystr = ""
+find(7, 7, myset, mystr)
 
-find(7, 7, myset)
-
-compare(max_set)
-print(resort)
+#compare(max_set)
+#print(resort)

@@ -1,5 +1,8 @@
-lists = [[0] * 8 for _ in range(5)]
+x = 10
+y = 33
 
-print(lists)
+text = ""
 
-#print(len(set))
+text += "("+ str(x) +", "+ str(y) +")"
+
+print(type(text), text)
