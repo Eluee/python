@@ -1,3 +1,3 @@
 
 def solution(characters):
-    return [ index for characters]
+    return [ x for x in range(len(characters)) if x   ]
