@@ -7,7 +7,11 @@ from random import *
 wb = load_workbook("testsampleb.xlsx")
 ws = wb.active
 
-print(ws["A2"]) # 셀에 대한 정보 출력
+ws.insert_rows(8) #8번째 줄에 비어있는 한 줄 추가
+ws.insert_cols(2) #2번째 열에 빈 한 줄 추가
+
+ws.delete_rows(8) #8번째 행을 제거
+ws.delete_cols(2) #2번쨰 열을 제거
 
 wb.save("testsampleb.xlsx")
 wb.close()

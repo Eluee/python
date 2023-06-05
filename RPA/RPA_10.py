@@ -1,13 +1,13 @@
 from openpyxl import Workbook
 from openpyxl import load_workbook # 워크북 
-from random import *
+import datetime
 
 # load_workbook() 함수는 파일을 불러올 수 있다.
-#
-wb = load_workbook("testsampleb.xlsx")
+wb = Workbook()
 ws = wb.active
 
-print(ws["A2"]) # 셀에 대한 정보 출력
+ws.merge_cells("B2:D2")
+ws["B2"].value = "Merged Cell"
 
-wb.save("testsampleb.xlsx")
+wb.save("testsample3.xlsx")
 wb.close()
