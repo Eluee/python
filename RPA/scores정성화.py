@@ -25,12 +25,13 @@ grades = [(0, "D"),(70, "C"),(80, "B"),(90,"A")]
 for x in range(1, len(table)):
     # 1. 퀴즈2 점수를 10으로 수정
     table[x][3] = 10
+    print(table[x])
     score = sum(table[x]) + (10 - (2 * table[x][1])) - table[x][0]
     if table[x][1] >= 4:
         # 결석 4회 이상인 학생은 총점 상관없이 F
         table[x][len(table[0]) - 1] = "F"
     else:
-        # ~ 총점 90이상 A, 80이상 B, 70 이사 C 나머지 D
+        # ~ 총점 90이상 A, 80이상 B, 70 이상 C 나머지 D
         for grade in grades:
             if score >= grade[0]:
                 table[x][len(table[0]) - 1] = grade[1]
