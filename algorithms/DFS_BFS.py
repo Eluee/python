@@ -1,6 +1,8 @@
 
-## 예제 graph
 def create_graph():
+    """
+    예제 graph 생성
+    """
     graph = dict()
     graph['A'] = ['B', 'C']
     graph['B'] = ['A', 'D']
@@ -14,4 +16,17 @@ def create_graph():
     graph['J'] = ['I']
     return graph
 
-print(create_graph())
+
+def coord_to_graph(n, m):
+    """
+    n * m 크기의 2차원 지도의 좌표를 graph로 만들어주는 함수
+    
+    """
+    graph = dict()
+    for i in range(n):
+        for j in range(m):
+            prop = list()
+            if ( - 1) > 0 : prop.append((i, j))
+            dict[(n,m)]
+
+print()
