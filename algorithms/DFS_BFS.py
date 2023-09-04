@@ -26,7 +26,7 @@ def coord_to_graph(n, m):
     for i in range(n):
         for j in range(m):
             prop = list()
-            if ( - 1) > 0 : prop.append((i, j))
+            if (i - 1) > 0 : prop.append((i, j))
             dict[(n,m)]
 
 print()
