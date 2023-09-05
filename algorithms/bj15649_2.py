@@ -9,8 +9,9 @@ def combination(text, n, depth, len):
     else:
         for i in range(1, n+1):
             if str(i) not in text:
-                text += ' ' + str(i)
-                combination(text, n, depth, len+1)
+                cp_text = text
+                cp_text += ' ' + str(i)
+                combination(cp_text, n, depth, len+1)
 
 
 for i in range(1, n+1):
