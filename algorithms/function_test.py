@@ -28,6 +28,7 @@ def coord_to_graph(n, m):
             prop = list()
             if (i - 1) > 0 : prop.append((i, j))
             dict[(n,m)]
+            
 
 def diagonal_1(i, j, N):
     """
@@ -79,6 +80,6 @@ def diagonal_2(i, j, N):
     
     for item in map:
         print(item)
-        
 
-diagonal_1(3, 2, 5)
+print(diagonal_1(3, 2, 5))   
+

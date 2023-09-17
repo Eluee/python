@@ -8,14 +8,3 @@ arti_list = [[four_arti[index] for _ in range(value)]for index, value in enumera
 
 
 print(arti_list.sort())
-
-
-# + - *
-
-# + + + - - *
-# + + + - * -
-# + + + * - -
-# + + - + * -
-# + + * - + -
-# + - + * - +
-# + * - + 
