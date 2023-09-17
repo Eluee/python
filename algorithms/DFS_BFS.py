@@ -29,4 +29,56 @@ def coord_to_graph(n, m):
             if (i - 1) > 0 : prop.append((i, j))
             dict[(n,m)]
 
-print()
+def diagonal_1(i, j, N):
+    """
+    bj9663_2 문제를 위한 실험 코드 퀸을 N * N 크기의 맵의 (i, j)에 배치 했을때 
+    이동 가능한 경로를 모두 '#'으로 바꿔서 출력
+
+    Args:
+        i (int): x좌표 
+        j (int): y좌표
+        N (int): 맵의 크기
+    """
+    map = [['0' for _ in range(N)]for _ in range(N)]
+    #직선
+    for x in range(N): map[x][j] = '#'
+    for x in range(N): map[i][x] = '#'
+    #대각선
+    d = i - j
+    if d <= 0:
+        for x in range(N + d): map[x][x - d] = '#'
+    else:
+        for x in range(0 + d, N): map[x][x - d] = '#'
+    #대각선 반대
+    temp =  j + i
+    if temp < N:
+        for x in range(temp + 1): map[x][temp - x] = '#'
+    else:
+        for x in range(temp + 1 - N, N ): map[x][temp - x] = '#'
+        
+    for item in map:
+        print(item)
+
+def diagonal_2(i, j, N):
+    """
+    bj9663_2 문제를 위한 실험 코드 퀸을 N * N 크기의 맵의 (i, j)에 배치 했을때 
+    이동 가능한 대각선 경로를 모두 '#'으로 바꿔서 출력
+
+    Args:
+        i (int): x좌표 
+        j (int): y좌표
+        N (int): 맵의 크기
+    """
+    map = [['0' for _ in range(N)] for _ in range(N)]
+
+    temp =  j + i
+    if temp < N:
+        for x in range(temp + 1): map[x][temp - x] = '#'
+    else:
+        for x in range(temp + 1 - N, N ): map[x][temp - x] = '#'
+    
+    for item in map:
+        print(item)
+        
+
+diagonal_1(3, 2, 5)
