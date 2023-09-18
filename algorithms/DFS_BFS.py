@@ -29,4 +29,9 @@ def coord_to_graph(n, m):
             if (i - 1) > 0 : prop.append((i, j))
             dict[(n,m)]
 
-print()
+N = 10
+i, j = [3, 4]
+d = i - j
+for x in range(N):
+        if x - d < 0 or x - d < N - 1: continue
+        print(f"{(x - d)}, {x}")
