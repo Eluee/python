@@ -1,4 +1,6 @@
 
+import math
+
 N = int(input())
 map = {(i, j) for i in range(N) for j in range(N)}
 
@@ -32,22 +34,21 @@ def locate_queen(point, map):
     else:
         for x in range(temp + 1 - N, N ): map.discard((x, temp - x))
 
-# (2, 3) (3, 2) N = 5
-
-
 def solution(queens ,map):
     global N, result
+    
     if len(queens) == N:
         result.append(queens)
         return
+  
     for coord in list(map):
         queens_cp = queens.copy()
         map_cp = map.copy()
         queens_cp.append(coord)
-        locate_queen(coord, map_cp)
+        locate_queen(coord, map_cp )
         solution(queens_cp, map_cp)
 
 
 
-solution([],map)
+solution([],map,0)
 print(len(result))

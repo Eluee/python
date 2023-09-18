@@ -81,5 +81,20 @@ def diagonal_2(i, j, N):
     for item in map:
         print(item)
 
-print(diagonal_1(3, 2, 5))   
+def list_in_tuple_sort(arr):
+    """
+    리스트 안에 들어있는 (x, y)좌표 튜플이 정렬가능한지
+    """
+    arr.sort()
+    print(arr)
 
+
+
+def permutation(N, M):
+
+    def recursion(arr):
+        
+        if len(arr) == N:
+            print(arr)
+        for i in range(N):
+        

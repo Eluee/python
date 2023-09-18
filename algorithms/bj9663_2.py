@@ -29,7 +29,7 @@ def locate_queen(point, map):
     else:
         for x in range(temp + 1 - N, N ): map.discard((x, temp - x))
 
-map = {(i, j) for i in range(N) for j in range(N)}
+map = [(i, j) for i in range(N) for j in range(N)]
 print(map)
 locate_queen((2, 2),map)
 print(map)
