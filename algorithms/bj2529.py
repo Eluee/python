@@ -31,9 +31,6 @@ def solution(number_list, depth):
                         number_list_cp.append(number)
                         solution(number_list_cp, depth + 1)
                 
-
-
-
 solution([], 0)
 print("".join(map(str, result[len(result) - 1])))
 print("".join(map(str, result[0])))
