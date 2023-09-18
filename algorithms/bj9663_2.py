@@ -1,6 +1,3 @@
-
-N = int(input())
-
 def locate_queen(point, map):
     """ 
     퀸이 point 좌표에 있을때의 공격 가능한 좌표를 제거
@@ -29,7 +26,16 @@ def locate_queen(point, map):
     else:
         for x in range(temp + 1 - N, N ): map.discard((x, temp - x))
 
+def cases(queen_pos_cases, map):
+    global N, total_position_cases
+    # q
+    if len(queen_pos_cases) == N:
+        total_position_cases.append(queen_pos_cases)
+    
+N = int(input())
 map = {(i, j) for i in range(N) for j in range(N)}
+total_position_cases = []
+
 print(map)
 locate_queen((2, 2),map)
 print(map)
