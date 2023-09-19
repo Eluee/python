@@ -4,7 +4,6 @@ ineq_symbols = list(input().split())
 
 result = []
 
-
 # 수의 조합을 찾는 함수
 def solution(number_list, depth):
     global k
