@@ -34,4 +34,4 @@ def solution(com_list, com, depth):
 
 solution([],com,0)
 print(max(max_min_list))
-print(min(max_min_list))
+print(min(max_min_list)) 
