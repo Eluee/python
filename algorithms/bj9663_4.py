@@ -1,15 +1,11 @@
 
 import math
+import time
 
-N = int(input())
-map = [(i, j) for i in range(N) for j in range(N)]
 
-imposs_position = {}
-result = []
-
-def locate_queen(point, imposs_position):
+def locate_queen(point, map):
     """ 
-    퀸이 point 좌표에 있을때 퀸을 배치하지 못하는 좌표를 포함
+    퀸이 point 좌표에 있을때의 공격 가능한 좌표를 제거
     Args:
         point (_tuple_): _퀸이 위치한 x, y 좌표를 담고 있는 tuple
         map (_set_): _지도에 존재하는 좌표_
@@ -18,39 +14,55 @@ def locate_queen(point, imposs_position):
     global N
     i, j = point
     for x in range(N): 
-        imposs_position.add((x, j))
-        imposs_position.add((i, x))
+        if (x, j) in map: map.remove((x, j))
+        if (i, x) in map: map.remove((i, x))
         
     # 대각선 경로
     d = i - j
     if d <= 0:
-        for x in range(N + d): imposs_position.add((x, x - d))
+        for x in range(N + d): 
+            if (x, x - d) in map: map.remove((x, x - d))
     else:
-        for x in range(0 + d, N): imposs_position.add((x, x - d))
-        
+        for x in range(0 + d, N):
+            if (x, x - d) in map: map.remove((x, x - d))
     # 반대 대각선 경로
     temp =  j + i
     if temp < N:
-        for x in range(temp + 1): imposs_position.add((x, temp - x))
+        for x in range(temp + 1):
+            if (x, temp - x) in map: map.remove((x, temp - x))
     else:
-        for x in range(temp + 1 - N, N ): imposs_position.add((x, temp - x))
+        for x in range(temp + 1 - N, N ):
+            if (x, temp - x) in map: map.remove((x, temp - x))
 
-def solution(queens ,imposs_position):
-    global N, result, map
+def solution(queens ,map):
+    global N, result
     
     if len(queens) == N:
         result.append(queens)
+        view_table(queens)
         return
   
-    for coord in map:
-        if coord not in imposs_position:
-            queens_cp = queens.copy()
-            imposs_position_cp = imposs_position.copy()
-            queens_cp.append(coord)
-            locate_queen(coord, imposs_position_cp )
-            solution(queens_cp, imposs_position_cp )
+    for index in range(len(map)):
+        queens_cp = queens.copy()
+        map_cp = map[index + 1:]
+        queens_cp.append(map[index])
+        locate_queen(map[index], map_cp )
+        solution(queens_cp, map_cp)
+
+def view_table(queens):
+    table = [['0' for _ in range(N)] for _ in range(N)]
+    for coord in queens:
+        table[coord[0]][coord[1]] = '#'
+    
+    print(queens)
+    for row in table:
+        print(* row)
+    print()
+
+N = int(input())
+map = [(i, j) for i in range(N) for j in range(N)]
+result = []
 
 
-
-solution([],set())
+solution([],map)
 print(len(result))
