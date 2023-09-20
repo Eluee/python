@@ -13,26 +13,27 @@ def locate_queen(point, map):
     # 직선 경로
     global N
     i, j = point
+    reach = {}
     for x in range(N): 
-        if (x, j) in map: map.remove((x, j))
-        if (i, x) in map: map.remove((i, x))
+        reach.add((x, j))
+        reach.add((i, x))
         
     # 대각선 경로
     d = i - j
     if d <= 0:
         for x in range(N + d): 
-            if (x, x - d) in map: map.remove((x, x - d))
+            reach.add((x, x - d))
     else:
         for x in range(0 + d, N):
-            if (x, x - d) in map: map.remove((x, x - d))
+            reach.add((x, x - d))
     # 반대 대각선 경로
     temp =  j + i
     if temp < N:
         for x in range(temp + 1):
-            if (x, temp - x) in map: map.remove((x, temp - x))
+            reach.add((x, temp - x))
     else:
         for x in range(temp + 1 - N, N ):
-            if (x, temp - x) in map: map.remove((x, temp - x))
+            reach.add((x, temp - x))
 
 def solution(queens ,map):
     global N, result
