@@ -41,7 +41,7 @@ def solution(queens ,map):
         result.append(queens)
         return
   
-    for coord in list(map):
+    for coord in map:
         queens_cp = queens.copy()
         map_cp = map.copy()
         queens_cp.append(coord)
@@ -50,5 +50,5 @@ def solution(queens ,map):
 
 
 
-solution([],map,0)
+solution([],map)
 print(len(result))

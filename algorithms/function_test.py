@@ -87,4 +87,12 @@ def list_in_tuple_sort(arr):
     """
     arr.sort()
     print(arr)
+    
+def range_test():
+    """
+    range함수 테스트
+    """
+    for i in range(2, 0):
+        print(i)
 
+range_test()
