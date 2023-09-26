@@ -47,6 +47,7 @@ def solution(queens ,imposs_position):
             queens_cp = queens.copy()
             imposs_position_cp = imposs_position.copy()
             queens_cp.append(coord)
+             
             locate_queen(coord, imposs_position_cp )
             solution(queens_cp, imposs_position_cp )
 
