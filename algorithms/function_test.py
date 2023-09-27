@@ -15,8 +15,6 @@ def create_graph():
     graph['I'] = ['C', 'J']
     graph['J'] = ['I']
     return graph
-
-
 def coord_to_graph(n, m):
     """
     n * m 크기의 2차원 지도의 좌표를 graph로 만들어주는 함수
@@ -27,9 +25,7 @@ def coord_to_graph(n, m):
         for j in range(m):
             prop = list()
             if (i - 1) > 0 : prop.append((i, j))
-            dict[(n,m)]
-            
-
+            dict[(n,m)]            
 def diagonal_1(i, j, N):
     """
     bj9663_2 문제를 위한 실험 코드 퀸을 N * N 크기의 맵의 (i, j)에 배치 했을때 
@@ -59,7 +55,6 @@ def diagonal_1(i, j, N):
         
     for item in map:
         print(item)
-
 def diagonal_2(i, j, N):
     """
     bj9663_2 문제를 위한 실험 코드 퀸을 N * N 크기의 맵의 (i, j)에 배치 했을때 
@@ -80,19 +75,23 @@ def diagonal_2(i, j, N):
     
     for item in map:
         print(item)
-
 def list_in_tuple_sort(arr):
     """
     리스트 안에 들어있는 (x, y)좌표 튜플이 정렬가능한지
     """
     arr.sort()
     print(arr)
-    
 def range_test():
     """
     range함수 테스트
     """
     for i in range(2, 0):
         print(i)
-
-range_test()
+def set_pop():
+    """set형의 pop을 통한 요소 추가 예제
+    """
+    sample_set = {i for i in range(10)}
+    sample_list = []
+    for _ in range(4): sample_list.append(sample_set.pop())
+    print(sample_list)
+    print(sample_set)
