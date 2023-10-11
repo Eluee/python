@@ -85,7 +85,7 @@ def range_test():
     """
     range함수 테스트
     """
-    for i in range(2, 0):
+    for i in range(5):
         print(i)
 def set_pop():
     """set형의 pop을 통한 요소 추가 예제
@@ -95,3 +95,5 @@ def set_pop():
     for _ in range(4): sample_list.append(sample_set.pop())
     print(sample_list)
     print(sample_set)
+
+range_test()
