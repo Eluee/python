@@ -17,4 +17,4 @@ def solution(a, b):
     for i in resort: lcm *= i
     return lcm
 
-print(solution(6, 4)) 
+print(solution(12, 14)) 
