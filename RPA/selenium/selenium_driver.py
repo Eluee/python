@@ -16,9 +16,7 @@ driver.get("https://www.daum.net")
 keyword = '시청률'
 
 driver.find_element(By.XPATH, '//*[@id="q"]').send_keys(keyword)
-
-driver.find_element(By.XPATH, '//*[@id="daumSerch"]/fieldset/div/div/button[2]').click()
-time.sleep(1)
+D
 
 
 

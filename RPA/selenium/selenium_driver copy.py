@@ -19,6 +19,12 @@ driver.find_element(By.XPATH, '//*[@id="q"]').send_keys(keyword)
 
 driver.find_element(By.XPATH, '//*[@id="daumSearch"]/fieldset/div/div/button[3]').click()
 
+all_text = driver.find_element(By.XPATH, '//*[@id="jupTvRatingColl"]/div[2]/div[1]/div[3]/div/table/tbody' ).text
+
+print(all_text)
+
+
+
 time.sleep(1)
 
 
