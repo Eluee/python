@@ -1,4 +1,3 @@
-from operator import truediv
 import sys
 
 N, M, L = list(map(int, sys.stdin.readline().split()))
