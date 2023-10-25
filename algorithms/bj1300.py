@@ -23,6 +23,11 @@ index = 0
 # 인댁스가 1부터 시작
 for target in range(1, N + 1):
     # target값이 나올 수 있는 i, j의 경우의수를 이분탐색기법으로 완전 탐색 해서 갯수를 기록 
+    count = 0
+    left = 1
+    right = target
+    while(left <= right):
+        
     
 
 
