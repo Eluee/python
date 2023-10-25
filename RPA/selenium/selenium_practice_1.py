@@ -3,6 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from calendar import week
+import xlwings as xl
+import pandas as pd
 import time
 
 options = Options()
@@ -25,7 +28,7 @@ week_text = driver.find_element(By.XPATH, '//*[@id="jupTvRatingColl"]/div[2]/div
 time.sleep(0.3)
 
 driver.find_element(By.XPATH, '//*[@id="jupTvRatingColl"]/div[2]/div[1]/div[1]/ul/li[3]').click()
-month_text = driver.find_element(By.XPATH, '//*[@id="jupTvRatingColl"]/div[2]/div[1]/div[3]/div/table/tbody' ).text
+epic_text = driver.find_element(By.XPATH, '//*[@id="jupTvRatingColl"]/div[2]/div[1]/div[3]/div/table/tbody' ).text
 
 
 def recompose_string(recomposable_string):
@@ -34,13 +37,24 @@ def recompose_string(recomposable_string):
     composed_list = [[composed_list[i][0], ' '.join(composed_list[i][1:-2]), composed_list[i][-2], composed_list[i][-1]]for i in range(len(composed_list))]
     return composed_list
 
+def make_dataframe(data):
+    return pd.DataFrame.from_records(data, columns=["순위", "프로그램", "채널", "시청률"])
 
-day_list = recompose_string(day_text)
-week_list = recompose_string(week_text)
-month_list = recompose_string(month_text)
+day_df = make_dataframe(recompose_string(day_text))
+week_df = make_dataframe(recompose_string(week_text))
+epic_df = make_dataframe(recompose_string(epic_text))
 
-# 문자열 까지 가공 끝난 상태 여기서 이제 pandas로 작업하면 끝
+book = xl.Book()
 
+book.sheets[0]['A1'].value = day_df
+book.sheets.add()
+book.sheets[0]['A1'].value = week_df
+book.sheets.add()
+book.sheets[0]['A1'].value = epic_df
+
+for i in range(3):
+    sheet_names = ["역대시청률", "주간시청률", "일일시청률"]
+    book.sheets[i].name = sheet_names[i]
 
 time.sleep(1)
 
