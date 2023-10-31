@@ -16,20 +16,37 @@ import sys
 # B[k]를 출력한다.
 
 N = int(sys.stdin.readline())
-k = int(sys.stdin.readline())
+#k = int(sys.stdin.readline())
 
 index = 0
 
-# 인댁스가 1부터 시작
-for target in range(1, N + 1):
-    # target값이 나올 수 있는 i, j의 경우의수를 이분탐색기법으로 완전 탐색 해서 갯수를 기록 
-    count = 0
-    left = 1
-    right = target
-    while(left <= right):
-        
-    
+# NxN 크기의 배열 A에서 등장할 수 있는 모든 정수를 구하기
 
+print({i * j for i in range(1, N + 1) for j in range(i, N + 1)})
+  
+        
+
+# 1, 2, 3, 4, 5
+# 1, 2, 3, 5
+# 4, 6, 8, 10
+# 9, 12, 15
+# 25
+
+
+
+# 1 2 3
+# 1 2 3
+# 4 6
+#
+
+# 12
+# 1, 2, 3, 5, 7, 11, 12
+# 1 ,2, 3, 5, 7, 11, 
+# 4, 6, 8, 10
+# 9,
+
+# N이하의 모든 소수를 구함
+# 
 
 
 
