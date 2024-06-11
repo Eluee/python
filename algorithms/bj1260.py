@@ -9,9 +9,6 @@ dict_N = {i:[] for i in range(1,N + 1)}
 result = []
 
 for _ in range(M):
-
-
-
     key, value = list(map(int, sys.stdin.readline().split()))
     # 간선이 양방향이므로 양쪽 모두 생성
     dict_N[key].append(value)
